@@ -12,7 +12,7 @@ import Foundation
 //    func update(model: ModelType) throws -> ModelType?
 //    func delete(_ id: ModelType.ID) throws -> ModelType?
 //}
-public final class Repository: Container {
+public final class Repository: Container, Service {
     public var config: Config
 
     public var environment: Environment

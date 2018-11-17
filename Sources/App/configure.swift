@@ -1,5 +1,6 @@
 import FluentSQLite
 import Vapor
+import Repository
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
@@ -30,4 +31,13 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     migrations.add(model: Todo.self, database: .sqlite)
     services.register(migrations)
 
+    let repo = Repository()
+    let dbDogAdapter = DogSQLiteAdapter()
+    let mockDogAdapter = DogMockAdapter()
+
+    let adapterSet = DogAdapterSet(dbAdapater: dbDogAdapter, mockAdapter: mockDogAdapter)
+
+    repo.register(adapterSet: adapterSet)
+
+    services.register(repo, as: Repository.self)
 }
