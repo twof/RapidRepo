@@ -1,6 +1,9 @@
 # RapidRepo
 RapidRepo is a Vapor framework that provides structure to assist users setting up a modified version of [the repository pattern](https://docs.vapor.codes/3.0/extras/style-guide/#architecture) within their own apps.
 
+## Installation
+
+
 ## Architecture
 A set of `DataSource`s are established by the app owner that all models submitted to the repository must adapt to. For example, if the app owner wishes to use a Redis cache, a Postgres database, and and use mock data for testing, each model will have to set up adaptors for each of those data sources.
 

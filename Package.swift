@@ -12,9 +12,10 @@ let package = Package(
     ],
     targets: [
         .target(name: "Repository", dependencies: ["FluentSQLite", "Vapor"]),
-        .target(name: "App", dependencies: ["FluentSQLite", "Vapor", "Repository"]),
-        .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App"])
+        .testTarget(name: "RepositoryTests", dependencies: ["Repository"]),
+        .target(name: "ExampleApp", dependencies: ["FluentSQLite", "Vapor", "Repository"]),
+        .target(name: "ExampleRun", dependencies: ["ExampleApp"]),
+
     ]
 )
 
